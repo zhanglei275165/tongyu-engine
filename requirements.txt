@@ -1,0 +1,4 @@
+llama-cpp-python>=0.3.35
+pystray>=0.19.5
+pillow>=10.0.0
+pyinstaller>=6.0.0

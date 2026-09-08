@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# 打包产物
+build/
+dist/
+*.exe
+*.spec.bak
+
+# 运行时日志
+engine.log
+*.stage.log
+
+# 模型权重（巨大，不要进仓库）
+*.gguf
+models/
+
+# 系统
+.DS_Store
+Thumbs.db
