@@ -50,7 +50,9 @@ def probe(host, port, timeout=5):
     url = "http://%s:%d/api/version" % (host, port)
     try:
         req = urllib.request.Request(url, method="GET")
-        with urllib.request.urlopen(req, timeout=timeout) as r:
+        # 强制不走系统代理，否则 127.0.0.1 探测会被代理拦截误判引擎挂掉
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        with opener.open(req, timeout=timeout) as r:
             return r.status == 200
     except (urllib.error.URLError, urllib.error.HTTPError, OSError, Exception):
         return False
